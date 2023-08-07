@@ -156,7 +156,7 @@ img{
 
 /*MAIN LANDING PAGE*/
 
-.bg-hero{
+.hero{
   background-color: var(--navyblue);
   height: 600px;
   background: linear-gradient(
@@ -244,7 +244,7 @@ alpha = opacity*/
   margin-top: 30px;
 }
 
-.benefits-svg-box{
+.icon{
   width: 264px;
   height: 112px;
   flex-shrink: 0;
@@ -373,7 +373,7 @@ alpha = opacity*/
   fill: currentColor;
 }
 
-.customers{
+.partners{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -381,7 +381,7 @@ alpha = opacity*/
   gap: 24px;
 }
 
-.customer-box{
+.partners .item{
   width: 168px;
   height: 88px;
   border: 1px solid var(--lightslate, #8E8F99);
@@ -420,17 +420,17 @@ alpha = opacity*/
   padding-top: 17px;
 }
 
-.social-media{
+.footer-heading{
   color: var(--cloud);
 }
 
-.footer-social{
+.social-footer{
   display: flex;
   gap: 16px;
   margin-top: 16px;
 }
 
-.footer-svg{
+.icon-item{
     width: 40px;
     height: 40px;
     flex-shrink: 0;
@@ -442,12 +442,17 @@ alpha = opacity*/
   }
 
 
-.footer-svg:hover,
-.footer-svg:focus{
+.icon-item:hover,
+.icon-item:focus{
   background-color: var(--green);
 }
 
-.footer-container{
+/* .page-footer .container{
+  display: flex;
+  gap: 120px;
+} */
+
+.footer{
   display: flex;
   gap: 120px;
 }
