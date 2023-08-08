@@ -166,13 +166,12 @@ img{
   ), url(../images/people-office.jpg);
   height: 600px;
   background-repeat: no-repeat;
-  background-position-x: center;
-}
-
-.hero {
+  background-position: center;
+  background-size: cover;
   padding: 200px 0;
   text-align: center;
 }
+
 
 .hero .hero-title{
   color: var(--white, #FFF);
@@ -239,7 +238,7 @@ alpha = opacity*/
 /* this is called a descendant combinator. Hinahanap ni CSS si "item" sa loob ni "benefits" */
 /* divided by 4 kasi apat yung items sa loob. yung -30px naman, kaunting adjustments nalang yun after the division */
 .benefits .item{
-  flex-basis: calc(100%/4-30px);
+  flex-basis: calc(100% / 4 - 30px);
   margin-left: 30px;
   margin-top: 30px;
 }
@@ -247,15 +246,18 @@ alpha = opacity*/
 .icon{
   width: 264px;
   height: 112px;
-  flex-shrink: 0;
+  display: flex;
   border-radius: 4px;
   background: var(--cloud, #F4F4FD);
   margin-bottom: 8px;
+  justify-content: center;
+  align-items: center;
 }
 
-.benefits-svg-icon{
+/* The padding is the reason why my icons wouldn't show! */
+/* .benefits-svg-icon{
   padding: 24px 100px;
-}
+} */
 
 /* padding: top&bottom left&right, padding: 120px 0 */
 .section{
@@ -338,34 +340,48 @@ alpha = opacity*/
 
 .team-social{
   display: flex;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  /* margin-left: 30px; */
+  padding-top: 10px;
   gap: 24px;
-  align-items: center;
   justify-content: center;
 }
 
 .team-svg{
   width: 40px;
   height: 40px;
-  flex-shrink: 0;
+  /* flex-shrink: 0;
   background: var(--iriscolor);
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 50%; */
+}
+
+.team-social .link{
+  display: flex;
+  background-color: var(--iriscolor);
+  color: var(--cloud);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
 }
 
-.team-svg:hover,
-.team-svg:focus{
+.team-social .link:hover,
+.team-social .link:focus{
   background-color: var(--oceancolor);
 }
 
 .team-social-icon{
-  fill: #F4F4FD;
+  fill: currentColor;
+  width: 16px;
+  height: 16px;
 }
 
+.social-footer .team-social-icon{
+  width: 40px;
+  height: 40px;
+}
 
 /* CUSTOMERS */
 
@@ -375,28 +391,31 @@ alpha = opacity*/
 
 .partners{
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   gap: 24px;
 }
 
 .partners .item{
   width: 168px;
   height: 88px;
-  border: 1px solid var(--lightslate, #8E8F99);
-  border-radius: 4px;
-  color: var(--lightslate);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
 } 
 
-.customers-icon:hover,
-.customers-icon:focus,
-.customer-box:hover,
-.customer-box:focus{
+/* Instead of making the box for .partners .item, do it for .partners .link */
+.partners .link{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border: 1px solid var(--lightslate);
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  color: var(--lightslate);
+}
+
+.partners .link:focus,
+.partners .link:hover{
   color: var(--oceancolor);
   border-color: var(--oceancolor);
 }
@@ -405,7 +424,7 @@ alpha = opacity*/
 
 .page-footer{
   background-color: var(--navyblue);
-  padding: 60px 0;
+  padding: 60px 0 60px 60px;
 }
 
 .page-footer .studio-footer{
@@ -422,28 +441,34 @@ alpha = opacity*/
 
 .footer-heading{
   color: var(--cloud);
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .social-footer{
   display: flex;
   gap: 16px;
-  margin-top: 16px;
+  padding-top: 16px;
 }
 
 .icon-item{
     width: 40px;
     height: 40px;
-    flex-shrink: 0;
-    background: var(--iriscolor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
   }
 
+.social-footer .link{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--iriscolor);
+  color: var(--cloud);
+}
 
-.icon-item:hover,
-.icon-item:focus{
+.social-footer .link:hover,
+.social-footer .link:focus{
   background-color: var(--green);
 }
 
@@ -454,7 +479,21 @@ alpha = opacity*/
 
 .footer{
   display: flex;
-  gap: 120px;
+  /* gap: 120px; */
+  flex-wrap: wrap;
+  margin-top: -12px;
+  margin-left: -50px;
+  align-items: baseline;
+}
+
+.footer-address{
+  margin-top: 12px;
+  margin-left: 25px;
+}
+
+.footer-block{
+  margin-top: 12px;
+  margin-left: 123px;
 }
 
 .benefits .title{
@@ -525,6 +564,10 @@ The adjacent sibling selector is used to select an element that is directly afte
   flex-basis: calc(100% /3 - 30px);
   margin-left: 30px;
   margin-top: 30px;
+}
+
+.project-card:hover{
+  box-shadow: 0px 2px 1px 0px rgba(46, 47, 66, 0.08), 0px 1px 1px 0px rgba(46, 47, 66, 0.16), 0px 1px 6px 0px rgba(46, 47, 66, 0.08);
 }
 
 .project .name{
